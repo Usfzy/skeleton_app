@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/flutter_localization.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logging/logging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:skeleton_app/config/routes_generator.dart';
 import 'package:skeleton_app/config/theme.dart';
 
-import 'config/app_locale.dart';
 import 'features/authentication/data/datasources/local_datasource.dart';
 
 void main() async {
@@ -36,31 +35,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _localization = FlutterLocalization.instance;
-
-  @override
-  void initState() {
-    _localization.init(
-      mapLocales: [
-        const MapLocale('en', AppLocale.kEN),
-        const MapLocale('km', AppLocale.kKM),
-      ],
-      initLanguageCode: 'en',
-    );
-    _localization.onTranslatedLanguage = _onTranslatedLanguage;
-    super.initState();
-  }
-
-  void _onTranslatedLanguage(Locale? locale) {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateTitle: (_) => RouteGenerator.kTitle,
-      supportedLocales: _localization.supportedLocales,
-      localizationsDelegates: _localization.localizationsDelegates,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+      ],
       theme: theme,
       initialRoute: RouteGenerator.kSplashScreen,
       onGenerateRoute: RouteGenerator.onGenerateRoute,

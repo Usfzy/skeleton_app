@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skeleton_app/features/home/home_page.dart';
 import 'package:skeleton_app/features/splash/splash_page.dart';
 
 class RouteGenerator {
@@ -15,6 +16,10 @@ class RouteGenerator {
       case kSplashScreen:
         return MaterialPageRoute(
           builder: (context) => const SplashPage(),
+        );
+      case kHomeScreen:
+        return MaterialPageRoute(
+          builder: (context) => const HomePage(),
         );
 
       default:

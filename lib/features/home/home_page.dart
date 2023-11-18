@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../config/locale.dart';
+import 'package:skeleton_app/config/routes_generator.dart';
+import 'package:skeleton_app/core/utils/extensions.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,7 +11,11 @@ class HomePage extends StatelessWidget {
       body: Center(
         child:
             // Text(AppLocale.title.getString(context)),
-            Text(context.tr(AppLocale.title)),
+            InkWell(
+                onTap: () {
+                  context.pushNamed(RouteGenerator.kHomeScreen);
+                },
+                child: Text('context.localizations.appTitle')),
       ),
     );
   }

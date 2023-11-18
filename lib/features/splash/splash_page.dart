@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../config/locale.dart';
+import 'package:skeleton_app/config/routes_generator.dart';
+import 'package:skeleton_app/core/utils/extensions.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -9,7 +9,11 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(context.tr(AppLocale.title)),
+        child: InkWell(
+            onTap: () {
+              context.pushNamed(RouteGenerator.kHomeScreen);
+            },
+            child: Text('context.localizations.appTitle')),
       ),
     );
   }
