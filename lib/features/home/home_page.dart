@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:skeleton_app/config/routes_generator.dart';
 import 'package:skeleton_app/core/utils/extensions.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child:
-            // Text(AppLocale.title.getString(context)),
-            InkWell(
-                onTap: () {
-                  context.pushNamed(RouteGenerator.kHomeScreen);
-                },
-                child: Text('context.localizations.appTitle')),
+        child: InkWell(
+          onTap: () {
+            context.pushNamed(RouteGenerator.kHomeScreen);
+          },
+          child: Text(AppLocalizations.of(context)!.appTitle),
+        ),
       ),
     );
   }

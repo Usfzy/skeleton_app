@@ -13,7 +13,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
 
   const AppBarWidget({
-    Key? key,
+    super.key,
     required this.title,
     this.backgroundColor = kAppbarColor,
     this.textStyle = const TextStyle(color: kWhiteColor),
@@ -22,7 +22,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     this.automaticallyImplyLeading = true,
     this.leading,
     this.actions,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

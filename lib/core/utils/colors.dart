@@ -7,7 +7,6 @@ const kDarkBlueColor = Color(0xFF0E1328);
 const kSilverColor = Color(0xFF7D83A4);
 const kRedColor = Color(0xFFEB1A2F);
 
-
 const kPrimaryColor = kLightYellowColor;
 const kOnPrimaryColor = kDarkBlueColor;
 const kSecondaryColor = kGreenColor;

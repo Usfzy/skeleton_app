@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
 
-showCustomSnackBar(
+void showCustomSnackBar(
   BuildContext context,
   String content, {
   bool isError = false,

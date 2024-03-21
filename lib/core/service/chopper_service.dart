@@ -13,7 +13,7 @@ final chopperClient = ChopperClient(
   services: services,
   converter: JsonToTypeConverter(typeToJsonFactoryMap),
   interceptors: [HttpLoggingInterceptor(), TokenInterceptor()],
-  // authenticator: TokenAuthenticator(),
+  authenticator: TokenAuthenticator(),
 );
 
 List<ChopperService> get services => [
@@ -43,7 +43,7 @@ class TokenAuthenticator extends Authenticator {
   }
 }
 
-class TokenInterceptor extends RequestInterceptor {
+class TokenInterceptor implements RequestInterceptor {
   @override
   FutureOr<Request> onRequest(Request request) async {
     final preffs = await SharedPreferences.getInstance();
@@ -72,7 +72,6 @@ class JsonToTypeConverter extends JsonConverter {
   T fromJsonData<T, InnerType>(String jsonData, Function? jsonParser) {
     var jsonMap = json.decode(jsonData);
     if (jsonParser == null) {
-      print("jsonMap : ${jsonMap}");
       return jsonMap as T;
     }
     if (jsonMap is List) {

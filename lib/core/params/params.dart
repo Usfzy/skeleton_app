@@ -1,1 +1,1 @@
-abstract class Params{}
+abstract class Params {}

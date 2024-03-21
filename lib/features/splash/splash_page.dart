@@ -3,7 +3,7 @@ import 'package:skeleton_app/config/routes_generator.dart';
 import 'package:skeleton_app/core/utils/extensions.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class SplashPage extends StatelessWidget {
             onTap: () {
               context.pushNamed(RouteGenerator.kHomeScreen);
             },
-            child: Text('context.localizations.appTitle')),
+            child: Text(context.localizations.appTitle)),
       ),
     );
   }
